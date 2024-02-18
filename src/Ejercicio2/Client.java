@@ -1,13 +1,16 @@
 package Ejercicio2;
 
-public class Client extends Person {
-    private String bookingHistory;
+import java.util.List;
 
-    public Client(String name, int id, String address) {
-        super(name, id, address);
+public class Client extends Person {
+    private List<Book> bookingHistory;
+
+    public Client(String name,int id,String address){
+        super(name,id,address);
+
     }
 
-    public String getBookingHistory() {
+    public List<Book> getBookingHistory(){
         return bookingHistory;
     }
 }
