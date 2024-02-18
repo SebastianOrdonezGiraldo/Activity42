@@ -9,6 +9,10 @@ public class Credit {
         this.status = "pending";
     }
 
+    public Credit() {
+
+    }
+
     public CreditRequest getCreditRequest() {
         return creditRequest;
     }

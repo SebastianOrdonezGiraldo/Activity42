@@ -8,12 +8,31 @@ public class CreditRequest {
     private int term;
     private double interestRate;
 
-    public CreditRequest(String client, String creditType, double amount, int term, double interestRate) {
-        this.client = client;
+    public CreditRequest(Client client, String creditType, double amount, int term, double interestRate) {
+        this.client = String.valueOf(client);
         this.creditType = "personal o hipotecario";
         this.amount = amount;
         this.term = term;
         this.interestRate = interestRate;
+    }
+
+    public String obtenerCliente(){
+        return client;
+    }
+    public String obtenerTipoCredito() {
+        return creditType;
+    }
+
+    public double obtenerMonto() {
+        return amount;
+    }
+
+    public int obtenerPlazo() {
+        return term;
+    }
+
+    public double obtenerTasaInteres() {
+        return interestRate;
     }
 
     public String getClient() {
