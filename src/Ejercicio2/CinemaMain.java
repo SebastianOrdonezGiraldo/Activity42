@@ -11,7 +11,6 @@ public class CinemaMain {
             for (int j = 1; j <=10; j++){
                 seatList.add(new Seat(i,j));
             }
-
         }
         Auditorium auditorium = new Auditorium(1,100,seatList);
 
@@ -21,8 +20,12 @@ public class CinemaMain {
         Client client = new Client("Arle",1092850181,"Cr 18 # 70,20");
 
         List<Seat> seatsToReserve = new ArrayList<>();
-        seatsToReserve.add(auditorium.getSeat(1,1));
-        seatsToReserve.add(auditorium.getSeat(3,1));
+        String rowReserve = JOptionPane.showInputDialog("Ingrese la fila del asiento que desea reservar:");
+        String columnReserve = JOptionPane.showInputDialog("Ingrese la columna del asiento que desea reservar:");
+        int rowReserveInt = Integer.parseInt(rowReserve);
+        int columnReserveInt = Integer.parseInt(columnReserve);
+        seatsToReserve.add(auditorium.getSeat(rowReserveInt, columnReserveInt));
+
         boolean book = funcion.reserveSeats(seatsToReserve);
         if (book){
             Book booked = new Book(client,movie,seatsToReserve);
@@ -31,9 +34,14 @@ public class CinemaMain {
         }else {
             JOptionPane.showMessageDialog(null,"Error reserving seats. Some seats are not available.");
         }
+
         List<Seat> seatsToBuy = new ArrayList<>();
-        seatsToBuy.add(auditorium.getSeat(2,4));
-        seatsToBuy.add(auditorium.getSeat(4,12));
+        String rowBuy = JOptionPane.showInputDialog("Ingrese la fila del asiento que desea comprar:");
+        String columnBuy = JOptionPane.showInputDialog("Ingrese la columna del asiento que desea comprar:");
+        int rowBuyInt = Integer.parseInt(rowBuy);
+        int columnBuyInt = Integer.parseInt(columnBuy);
+        seatsToBuy.add(auditorium.getSeat(rowBuyInt, columnBuyInt));
+
         boolean bought = funcion.buyTickets(seatsToBuy);
         if (bought){
             JOptionPane.showMessageDialog(null,"Tickets bought successfully.");

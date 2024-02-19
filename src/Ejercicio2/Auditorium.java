@@ -20,7 +20,12 @@ public class Auditorium {
     public int getCapacity() {
         return capacity;
     }
-    public Seat getSeat(int row,int column){
+    public Seat getSeat(int row, int column){
+        for (Seat seat : seatList) {
+            if (seat.getRow() == row && seat.getColumn() == column) {
+                return seat;
+            }
+        }
         return null;
     }
 
